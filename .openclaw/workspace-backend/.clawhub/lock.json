@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "nestjs": {
+      "version": "1.0.0",
+      "installedAt": 1773976247055
+    },
+    "security-auditor": {
+      "version": "1.0.0",
+      "installedAt": 1773976250102
+    },
+    "security-scanner": {
+      "version": "1.0.0",
+      "installedAt": 1773976254106
+    }
+  }
+}

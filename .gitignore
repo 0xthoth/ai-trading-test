@@ -1,6 +1,86 @@
+# Project ignores
 node_modules
 dist
 .env
 *.local
 coverage
 .turbo
+
+# Template ignores (infra, OpenClaw, Docker)
+node_modules/
+dist/
+*.log
+.DS_Store
+coverage/
+
+# pnpm
+.pnpm-store/
+.pnpm-debug.log
+
+# Secrets
+.env.local
+.env.*.local
+
+# Runtime data
+data/
+traefik_letsencrypt/
+
+# OpenClaw Runtime Data (exclude, but keep template structure)
+.openclaw/agents/*
+!.openclaw/agents/*/
+.openclaw/agents/*/agent/*
+!.openclaw/agents/*/agent/.gitkeep
+.openclaw/sandboxes/
+.openclaw/credentials/
+.openclaw/identity/
+.openclaw/devices/
+.openclaw/logs/
+.openclaw/exec-approvals.json
+.openclaw/memory/
+.openclaw/cron/
+.openclaw/delivery-queue/
+.openclaw/canvas/
+
+# Skills (exclude installed skills, but keep .clawhub tracking)
+.openclaw/skills/*/
+!.openclaw/skills/.clawhub/
+.openclaw/workspace-**/skills/*/
+!.openclaw/workspace-**/skills/.clawhub/
+
+# OpenClaw Live Config (use template instead)
+.openclaw/openclaw.json
+.openclaw/openclaw.json.bak
+.openclaw/openclaw.json.backup.*
+.openclaw/openclaw.json.project-backup
+.openclaw/update-check.json
+
+# OpenClaw session data (contains auth tokens)
+.openclaw/agents/*/sessions/
+
+# Workspace Runtime Data (exclude personal data)
+.openclaw/workspace-*/.openclaw/workspace-state.json
+.openclaw/workspace-*/memory/
+
+# Keep Template Structure but Exclude Personal Data
+# Workspaces are committed, but runtime state is excluded above
+
+# Local backups
+*.bak
+*.bak.*
+backup.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Per-workspace lockfiles (pnpm uses root pnpm-lock.yaml only)
+apps/*/package-lock.json
+
+# npm lockfile (project uses pnpm)
+package-lock.json
