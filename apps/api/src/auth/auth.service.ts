@@ -7,10 +7,10 @@ import { LoginDto } from './dto/login.dto';
 const DEMO_USERS = [
   {
     id: '1',
-    email: 'demo@lume.ai',
+    username: 'admin',
     // password: "password123"
     passwordHash: '$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36B9PbJjKSInOL1hm7s2OVq',
-    name: 'Demo Trader',
+    name: 'Admin',
   },
 ];
 
@@ -18,8 +18,8 @@ const DEMO_USERS = [
 export class AuthService {
   constructor(private readonly jwtService: JwtService) {}
 
-  async login(dto: LoginDto): Promise<{ accessToken: string; user: { id: string; email: string; name: string } }> {
-    const user = DEMO_USERS.find((u) => u.email === dto.email);
+  async login(dto: LoginDto): Promise<{ accessToken: string; user: { id: string; username: string; name: string } }> {
+    const user = DEMO_USERS.find((u) => u.username === dto.username);
 
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
@@ -31,12 +31,12 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload = { sub: user.id, email: user.email };
+    const payload = { sub: user.id, username: user.username };
     const accessToken = await this.jwtService.signAsync(payload);
 
     return {
       accessToken,
-      user: { id: user.id, email: user.email, name: user.name },
+      user: { id: user.id, username: user.username, name: user.name },
     };
   }
 }

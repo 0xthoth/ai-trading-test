@@ -28,24 +28,24 @@ describe('AuthService', () => {
 
   it('should return token for valid credentials', async () => {
     const result = await service.login({
-      email: 'demo@lume.ai',
+      username: 'admin',
       password: 'password123',
     });
 
     expect(result.accessToken).toBe('mock-jwt-token');
-    expect(result.user.email).toBe('demo@lume.ai');
-    expect(result.user.name).toBe('Demo Trader');
+    expect(result.user.username).toBe('admin');
+    expect(result.user.name).toBe('Admin');
   });
 
-  it('should throw for invalid email', async () => {
+  it('should throw for invalid username', async () => {
     await expect(
-      service.login({ email: 'wrong@email.com', password: 'password123' }),
+      service.login({ username: 'nonexistent', password: 'password123' }),
     ).rejects.toThrow(UnauthorizedException);
   });
 
   it('should throw for wrong password', async () => {
     await expect(
-      service.login({ email: 'demo@lume.ai', password: 'wrongpass' }),
+      service.login({ username: 'admin', password: 'wrongpass' }),
     ).rejects.toThrow(UnauthorizedException);
   });
 });
