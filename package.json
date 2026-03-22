@@ -11,5 +11,27 @@
     "build": "npm -w apps/web run build && npm -w apps/api run build",
     "test": "npm -w apps/web run test && npm -w apps/api run test",
     "lint": "npm -w apps/web run lint && npm -w apps/api run lint"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.17",
+    "@nestjs/core": "^11.1.17",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/platform-express": "^11.1.17",
+    "@nestjs/testing": "^11.1.17",
+    "@types/bcrypt": "^6.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "bcrypt": "^6.0.0",
+    "jest": "^30.3.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "ts-jest": "^29.4.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.1",
+    "vitest": "^4.1.0"
   }
 }
