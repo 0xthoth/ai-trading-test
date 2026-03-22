@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 
 export function LoginPage() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
@@ -95,23 +95,23 @@ export function LoginPage() {
               {/* Email */}
               <div className="space-y-2">
                 <label
-                  htmlFor="email"
+                  htmlFor="username"
                   className="block text-[0.6875rem] font-medium uppercase tracking-widest text-on-surface-variant/80 ml-1"
                 >
-                  Terminal ID / Email
+                  Terminal ID / Username
                 </label>
                 <div className="relative input-glow flex items-center bg-surface-container-lowest rounded-md border border-outline-variant/15 transition-all duration-300 focus-within:border-tertiary/40">
                   <span className="material-symbols-outlined absolute left-4 text-outline text-lg">
-                    alternate_email
+                    person
                   </span>
                   <input
-                    id="email"
-                    name="email"
-                    type="email"
+                    id="username"
+                    name="username"
+                    type="text"
                     required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@lume.ai"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Enter username"
                     className="w-full bg-transparent border-none py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/40 focus:ring-0 text-sm outline-none"
                   />
                 </div>
